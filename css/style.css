@@ -11,6 +11,20 @@ main {justify-content: center; padding: 1rem; }
     width: 200px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease ;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+    padding: 20px;
 }
 .product-card img { max-width: 100%; height: auto; }
 .product-card h3 { font-size: 1.1em; }
