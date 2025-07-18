@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Simple search, not very efficient
             return product.name.toLowerCase().includes(searchTerm);
         });
+        
         displayProducts(filteredProducts);
     });
 });
