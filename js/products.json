@@ -1,17 +1,8 @@
 [
-<<<<<<< HEAD
-    {"id": 1, "name": "Classic T-Shirt", "price": 499, "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80"},
-    {"id": 2, "name": "Running Shoes", "price": 1200, "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80"},
-    {"id": 3, "name": "Smart Watch", "price": 3500, "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80"},
-    {"id": 4, "name": "Denim Jeans", "price": 990, "image": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?w=500&q=80"},
-    {"id": 5, "name": "Leather Backpack", "price": 1850, "image": "https://images.unsplash.com/photo-1561126135-b7a5dfadace6?q=80&w=500"},
-    {"id": 6, "name": "Sunglasses", "price": 750, "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80"}
-=======
     {"id": 1, "name": "Air Jordan 1 Retro High OG GS “UNC”", "price": 7700, "image": "https://cdn.lesitedelasneaker.com/wp-content/images/2015/04/air-jordan-1-retro-high-og-unc-2.jpg"},
     {"id": 2, "name": "Air Jordan 1 High OG “Spider-Verse”", "price": 11500, "image": "https://tse2.mm.bing.net/th/id/OIP.GBpslafzO_0CFPDflx_AJAHaJG?r=0&w=768&h=943&rs=1&pid=ImgDetMain&o=7&rm=3"},
     {"id": 3, "name": "Air Jordan 1 “Chicago Reimagined”", "price": 12000, "image": "https://sneakernews.com/wp-content/uploads/2015/05/air-jordan-1-chicago-release-info-1.jpg"},
     {"id": 4, "name": "Travis Scott x Air Jordan 1 Low OG WMNS “Olive”", "price": 24500, "image": "https://dropinblog.net/34240971/files/featured/Travis-Scott-Air-Jordan-1-Low-Olive-DZ4137-106-Release-Date-On-Feet.jpeg"},
     {"id": 5, "name": "Union Los Angeles x Air Jordan 1 Retro High ‘Chicago Shadow’", "price": 10500, "image": "https://down-th.img.susercontent.com/file/cn-11134207-7ras8-m4k2lxy5awivc7"}, 
     {"id": 6, "name": "ช้างดาว", "price": 199, "image": "https://cf.shopee.co.th/file/6bf580790a590ceb8ad595523f5b4569"} 
->>>>>>> 2e39235 (update)
 ]
