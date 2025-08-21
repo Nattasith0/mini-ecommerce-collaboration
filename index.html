@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini E-Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <h1>My Simple Store</h1>
+            </div>
 
-        <div id="loader" class="loader">Loading...</div>
-
-        <h1>My Simple Store</h1>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="ค้นหาสินค้า...">
+            <div class="search-wrap">
+                <span class="search-icon">🔎</span>
+                <input type="text" id="searchInput" placeholder="ค้นหาสินค้า ชื่อ/คำสำคัญ..." aria-label="ค้นหาสินค้า">
+                <button class="clear-btn" id="clearSearch" aria-label="ล้างคำค้น">✕</button>
+            </div>
         </div>
+        <div id="loader" class="loader" aria-live="polite" aria-busy="true">กำลังโหลด...</div>
     </header>
-    <main id="product-list" class="product-list">
-</main>
+
+    <main class="container">
+        <section id="product-list" class="product-grid"></section>
+    </main>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

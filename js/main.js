@@ -2,41 +2,73 @@ document.addEventListener('DOMContentLoaded', () => {
     const productList = document.getElementById('product-list');
     const loader = document.getElementById('loader');
     const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearch');
+
     let allProducts = [];
+    let viewProducts = [];
 
     loader.style.display = 'block';
 
-    // Fetch products from JSON
     fetch('js/products.json')
-        .then(response => response.json())
+        .then(res => {
+            if (!res.ok) throw new Error('โหลดข้อมูลไม่สำเร็จ');
+            return res.json();
+        })
         .then(data => {
-            allProducts = data;
-            displayProducts(allProducts);
-            loader.style.display = 'none';
-        });
+            allProducts = data.map(p => ({ ...p, _name: (p.name || '').toLowerCase() }));
+            viewProducts = allProducts;
+            displayProducts(viewProducts);
+        })
+        .catch(() => {
+            productList.innerHTML = `<p style="text-align:center;color:#ef4444">เกิดข้อผิดพลาดในการโหลดสินค้า</p>`;
+        })
+        .finally(() => loader.style.display = 'none');
 
     function displayProducts(products) {
-        productList.innerHTML = ''; // Clear previous list
+        productList.innerHTML = '';
+        if (!products.length) {
+            productList.innerHTML = `<p class="meta" style="text-align:center;width:100%">ไม่พบสินค้าที่ค้นหา</p>`;
+            return;
+        }
+
         products.forEach(product => {
-            const card = document.createElement('div');
+            const card = document.createElement('article');
             card.className = 'product-card';
+
             card.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>ราคา: ${product.price.toLocaleString()} บาท</p>
-            `;
+        <img class="thumb" src="${product.image}" alt="${product.name}" loading="lazy">
+        <div class="content">
+          <h3>${product.name}</h3>
+          <div class="meta">ราคา</div>
+          <div class="price">฿${Number(product.price).toLocaleString()}</div>
+          <button class="btn" type="button" aria-label="หยิบ ${product.name} ใส่ตะกร้า">หยิบใส่ตะกร้า</button>
+        </div>
+      `;
             productList.appendChild(card);
         });
     }
 
-    // Inefficient Search
-    searchInput.addEventListener('keyup', () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        const filteredProducts = allProducts.filter(product => {
-            // Simple search, not very efficient
-            return product.name.toLowerCase().includes(searchTerm);
-        });
-        
-        displayProducts(filteredProducts);
+    function debounce(fn, delay = 200) {
+        let t;
+        return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn.apply(this, args), delay);
+        };
+    }
+
+    const doSearch = debounce(() => {
+        const q = searchInput.value.trim().toLowerCase();
+        viewProducts = q
+            ? allProducts.filter(p => p._name.includes(q))
+            : allProducts;
+        displayProducts(viewProducts);
+    }, 250);
+
+    searchInput.addEventListener('input', doSearch);
+
+    clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        displayProducts(allProducts);
+        searchInput.focus();
     });
 });
